@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/home/runner/work/com.acme.ios.package.FlowLayout/com.acme.ios.package.FlowLayout/.build/x86_64-unknown-linux-gnu/debug/FlowLayoutTests.build/master.swiftdeps"
+  },
+  "/home/runner/work/com.acme.ios.package.FlowLayout/com.acme.ios.package.FlowLayout/Tests/FlowLayoutTests/FlowLayoutTests.swift": {
+    "dependencies": "/home/runner/work/com.acme.ios.package.FlowLayout/com.acme.ios.package.FlowLayout/.build/x86_64-unknown-linux-gnu/debug/FlowLayoutTests.build/FlowLayoutTests.d",
+    "object": "/home/runner/work/com.acme.ios.package.FlowLayout/com.acme.ios.package.FlowLayout/.build/x86_64-unknown-linux-gnu/debug/FlowLayoutTests.build/FlowLayoutTests.swift.o",
+    "swiftmodule": "/home/runner/work/com.acme.ios.package.FlowLayout/com.acme.ios.package.FlowLayout/.build/x86_64-unknown-linux-gnu/debug/FlowLayoutTests.build/FlowLayoutTests~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/com.acme.ios.package.FlowLayout/com.acme.ios.package.FlowLayout/.build/x86_64-unknown-linux-gnu/debug/FlowLayoutTests.build/FlowLayoutTests.swiftdeps",
+    "diagnostics": "/home/runner/work/com.acme.ios.package.FlowLayout/com.acme.ios.package.FlowLayout/.build/x86_64-unknown-linux-gnu/debug/FlowLayoutTests.build/FlowLayoutTests.dia"
+  }
+}
