@@ -1,7 +1,4 @@
 import Testing
-@testable import FlowLayout
-
-import Testing
 import SwiftUI
 @testable import FlowLayout
 
@@ -25,14 +22,5 @@ struct FlowLayoutTests {
         #expect(layout.horizontalAlignment == .center)
         #expect(layout.verticalAlignment == .top)
         #expect(layout.layoutDirection == .rightToLeft)
-    }
-
-    @Test("Size calculation - Single row")
-    func testSizeCalculationSingleRow() {
-        let layout = FlowLayout(horizontalSpacing: 10, verticalSpacing: 10)
-        
-        // This is a bit hard to test deeply without mocking Subviews, 
-        // but we can at least verify it doesn't crash and returns a size.
-        // In a real scenario, we'd use a more sophisticated test helper.
     }
 }
