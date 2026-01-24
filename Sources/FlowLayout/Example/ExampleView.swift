@@ -74,7 +74,7 @@ public struct ExampleView: View {
                         .padding(8)
                         .font(index % 5 == 0 ? .title : .body)
                         .background(index % 2 == 0 ? Color.blue.opacity(0.3) : Color.green.opacity(0.3))
-                        .containerShape(Capsule())
+                        .clipShape(Capsule())
                         .padding(8)
                 }
             }

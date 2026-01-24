@@ -6,7 +6,9 @@ A flexible SwiftUI layout that arranges subviews in a flow, wrapping to the next
 
 - **Automatic Wrapping**: Subviews wrap to the next line based on their intrinsic width and available space.
 - **Configurable Spacing**: Custom horizontal and vertical spacing between items.
-- **Vertical Alignment**: Items within the same row are vertically centered.
+- **Vertical Alignment**: Items within the same row can be vertically aligned (top, center, or bottom) via the `verticalAlignment` parameter.
+- **Horizontal Alignment**: Rows can be aligned horizontally (leading, center, or trailing) via the `horizontalAlignment` parameter.
+- **Layout Direction**: Supports both left-to-right and right-to-left layouts via the `layoutDirection` parameter.
 
 ## Usage
 
@@ -35,11 +37,20 @@ struct MyView: View {
 ## Initialization
 
 ```swift
-public init(horizontalSpacing: CGFloat = 8, verticalSpacing: CGFloat = 8)
+public init(
+    horizontalSpacing: CGFloat = 8,
+    verticalSpacing: CGFloat = 8,
+    horizontalAlignment: HorizontalAlignment = .leading,
+    verticalAlignment: VerticalAlignment = .center,
+    layoutDirection: LayoutDirection = .leftToRight
+)
 ```
 
-- `horizontalSpacing`: The distance between items in a row.
-- `verticalSpacing`: The distance between rows.
+- `horizontalSpacing`: The distance between items in a row. Default is 8.
+- `verticalSpacing`: The distance between rows. Default is 8.
+- `horizontalAlignment`: The horizontal alignment of rows (`.leading`, `.center`, or `.trailing`). Default is `.leading`.
+- `verticalAlignment`: The vertical alignment of items within rows (`.top`, `.center`, or `.bottom`). Default is `.center`.
+- `layoutDirection`: The layout direction (`.leftToRight` or `.rightToLeft`). Default is `.leftToRight`.
 
 ## Why use FlowLayout?
 
