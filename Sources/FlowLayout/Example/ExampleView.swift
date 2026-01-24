@@ -70,11 +70,12 @@ public struct ExampleView: View {
             
             FlowLayout(horizontalSpacing: 12, verticalSpacing: 12, horizontalAlignment: horizontalAlignment.alignment, verticalAlignment: verticalAlignment.alignment, layoutDirection: layoutDirection.direction) {
                 ForEach(1..<101) { index in
+                    let bgColor = index % 2 == 0 ? Color.blue : Color.indigo
                     Text("Item \(index)")
                         .padding(8)
                         .font(index % 5 == 0 ? .title : .body)
-                        .background(index % 2 == 0 ? Color.blue.opacity(0.3) : Color.green.opacity(0.3))
-                        .containerShape(Capsule())
+                        .clipShape(Capsule())
+                        .background(Capsule().fill(bgColor.opacity(0.3)).stroke(bgColor))
                         .padding(8)
                 }
             }
