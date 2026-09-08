@@ -1,12 +1,11 @@
 //
-//  ContentView.swift
-//  FlowLayoutApp
+//  ExampleView.swift
+//  FlowLayout
 //
 //  Created by Kevin Launay on 12/01/2026.
 //
 
 import SwiftUI
-import FlowLayout
 
 enum HAlignment: String, CaseIterable, Hashable {
     case leading, center, trailing
