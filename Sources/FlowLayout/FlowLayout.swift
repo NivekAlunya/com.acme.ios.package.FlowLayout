@@ -1,14 +1,18 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
+//
+//  FlowLayout.swift
+//  FlowLayout
+//
+//  Created by Kevin Launay on 12/01/2026.
+//
 
 import SwiftUI
 
-/// A custom layout that arranges subviews in a flow, wrapping to the next line when space is exhausted.
+/// A custom layout that arranges subviews in a horizontal flow, wrapping to the next line when space is exhausted.
 ///
-/// `FlowLayout` is useful for creating tag clouds, button groups, or any collection of items where the number of items
-/// per row depends on their individual widths and the available container width.
-public struct FlowLayout: Layout {
-    /// The horizontal distance between adjacent subviews.
+/// `FlowLayout` is ideal for creating tag clouds, token inputs, button groups, or any collection of items where the number of items
+/// per row depends on their dynamic sizes and the container's available width.
+public struct FlowLayout: Layout, Sendable {
+    /// The horizontal distance between adjacent subviews within a row.
     public var horizontalSpacing: CGFloat
     /// The vertical distance between adjacent rows of subviews.
     public var verticalSpacing: CGFloat
@@ -19,12 +23,18 @@ public struct FlowLayout: Layout {
     /// The layout direction (left-to-right or right-to-left).
     public var layoutDirection: LayoutDirection
 
-    /// A cache to store pre-calculated layout information.
-    public struct Cache {
+    /// A cache storing pre-calculated layout sizes for all subviews.
+    public struct Cache: Sendable {
         var subviewSizes: [CGSize]
     }
 
-    /// Initializes a new FlowLayout with specified spacing and alignments.
+    /// Initializes a new `FlowLayout` with specified spacing and alignments.
+    /// - Parameters:
+    ///   - horizontalSpacing: Space between items on the same line (default: 8).
+    ///   - verticalSpacing: Space between consecutive lines (default: 8).
+    ///   - horizontalAlignment: Horizontal alignment of items (default: `.leading`).
+    ///   - verticalAlignment: Vertical alignment of items within each row (default: `.center`).
+    ///   - layoutDirection: Layout direction, supporting LTR and RTL (default: `.leftToRight`).
     public init(
         horizontalSpacing: CGFloat = 8,
         verticalSpacing: CGFloat = 8,
@@ -47,7 +57,7 @@ public struct FlowLayout: Layout {
         cache.subviewSizes = subviews.map { $0.sizeThatFits(.unspecified) }
     }
 
-    /// Returns the size that best fits the subviews within the proposed size.
+    /// Returns the size that best fits the subviews within the proposed width.
     public func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout Cache) -> CGSize {
         let result = calculateLayout(for: proposal.width ?? .infinity, cache: cache)
         return result.totalSize
