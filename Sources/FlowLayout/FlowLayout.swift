@@ -102,20 +102,13 @@ public struct FlowLayout: Layout, Sendable {
                     yOffset = (line.height - size.height) / 2
                 }
 
-                if isRTL {
-                    // In RTL, we place the item such that its right edge is at currentX
-                    subview.place(
-                        at: CGPoint(x: currentX - size.width, y: currentY + yOffset),
-                        proposal: ProposedViewSize(size)
-                    )
-                    currentX -= size.width + horizontalSpacing
-                } else {
-                    subview.place(
-                        at: CGPoint(x: currentX, y: currentY + yOffset),
-                        proposal: ProposedViewSize(size)
-                    )
-                    currentX += size.width + horizontalSpacing
-                }
+                let x = isRTL ? (currentX - size.width) : currentX
+                subview.place(
+                    at: CGPoint(x: x, y: currentY + yOffset),
+                    proposal: ProposedViewSize(size)
+                )
+                let step = size.width + horizontalSpacing
+                currentX += isRTL ? -step : step
             }
 
             currentY += line.height + verticalSpacing
